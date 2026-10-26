@@ -1,0 +1,32 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated analysis outputs
+A29_*
+class_balance.csv
+outliers_by_class.csv
+scaling_experiment_by_class/
+imputation_comparison_by_class/
+
+# Generated t-SNE experiment outputs
+results/tsne/
+
+# Generated MDS experiment outputs
+results/mds/
+
+# Generated UMAP experiment outputs
+Lab2/code/umap/umap_output/
+Lab2/code/umap/umap_study/
+Lab2/code/umap/umap_comparison/

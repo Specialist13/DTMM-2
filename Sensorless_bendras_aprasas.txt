@@ -1,0 +1,38 @@
+# Sensorless Drive Diagnosis – bendras duomenų aibės aprašas
+
+Duomenys skirti elektros pavaros būsenai diagnozuoti pagal variklio srovės signalus. 
+Viena eilutė atitinka vieną matavimo / būsenos atvejį.
+
+Originaliame UCI rinkinyje yra 58 509 objektai ir 11 vienodo dydžio būsenų klasių. 
+Srovės signalai buvo matuoti dviejose fazėse skirtingomis darbo sąlygomis 
+(skirtingi greičiai, apkrovos momentai ir apkrovos jėgos).
+
+Požymiams generuoti naudota Empirical Mode Decomposition (EMD): iš dviejų fazių srovių 
+naudotos pirmosios trys intrinsic mode functions (IMF) ir likutinės dalys, o iš jų sekų 
+skaičiuotos statistinės charakteristikos, įskaitant vidurkį, standartinį nuokrypį, 
+asimetriją ir ekscesą.
+
+Studentų failuose 48 skaitiniai požymiai žymimi `V01`–`V48`. UCI pateiktame faile nėra 
+patikimo vienareikšmio žemėlapio, leidžiančio kiekvienam V stulpeliui priskirti konkretų 
+fizinį pavadinimą ir vienetą, todėl atskiriems V01–V48 požymiams nereikia išgalvoti 
+fizinės interpretacijos. Juos reikia analizuoti kaip skaitinius signalų deskriptorius.
+
+`class` – kategorinė pavaros būsenos klasė (`Class_1`–`Class_11`). 
+UCI duomenų faile klasės pateiktos tik numeriais; atskirų numerių semantiniai gedimų 
+pavadinimai nepateikti.
+
+Originali UCI aibė:
+https://archive.ics.uci.edu/dataset/325/dataset+for+sensorless+drive+diagnosis
+
+DOI:
+https://doi.org/10.24432/C5VP5F
+
+Originalioje aibėje trūkstamų reikšmių nėra. Mokomieji A28–A31 variantai skirti 
+duomenų kokybės, EDA ir pirminio apdorojimo analizei.
+
+Prieš analizę:
+- patikrinkite stulpelių duomenų tipus ir reikšmių formatą;
+- įvertinkite praleistas reikšmes ir dublikatus;
+- ieškokite neįprastų / ekstremalių reikšmių;
+- įvertinkite požymių mastelius, pasiskirstymus ir koreliacijas;
+- klasės žymės nenaudokite kaip skaitinio požymio.

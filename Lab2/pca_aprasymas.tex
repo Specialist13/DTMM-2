@@ -1,0 +1,47 @@
+\subsection{Pagrindinių komponenčių analizė (PCA)}
+
+Pagrindinių komponenčių analizė (angl. \textit{Principal Component Analysis}, PCA) yra vienas žymiausių tiesinių dimensijos mažinimo metodų. Juo identifikuojamos kryptys (pagrindinės komponentės) su didžiausia variacija, kurios tarpusavyje nėra koreliuotos. Metodas gali būti vykdomas bet kokiam dimensijų (krypčių) kiekiui, tačiau šiuo atveju yra vykdomas tik dviejų.
+
+Tarkime, kad duomenų aibę sudaro $m$ objektų, aprašytų $n$ požymių, tad ją galima užrašyti duomenų matrica $X \in \RR^{m \times n}$. Teigiame, kad šioje aibėje požymių mastelis yra suvienodintas. Pirmiausia duomenys yra sucentruojami -- iš kiekvieno požymio atimamas jo vidurkis:
+\[
+\tilde{X} = X - \bar{X}.
+\]
+
+Iš sucentruotų duomenų suskaičiuojama kovariacijų matrica $C$:
+\[
+C = \frac{1}{m-1}\tilde{X}^{\top}\tilde{X}, \qquad C \in \RR^{n \times n}.
+\]
+Čia kiekvienas matricos elementas skaičiuojamas pagal formulę
+\[
+C_{jk} = \frac{1}{m-1}\sum_{i=1}^{m}(x_{ij} - \bar{x}_j)(x_{ik} - \bar{x}_k).
+\]
+
+Toliau randamos šios matricos tikrinės reikšmės (angl. \textit{eigenvalues}) $\lambda$, sprendžiant charakteristinę lygtį
+\[
+\det\left(C - \lambda I\right) = 0,
+\]
+kur $I$ yra vienetinė matrica. Kadangi kovariacijų matrica yra simetrinė ir teigiamai apibrėžta, visos jos tikrinės reikšmės yra realios ir neneigiamos: $\lambda_k \geq 0$.
+
+Kiekvienai rastai tikrinei reikšmei $\lambda_k$ suskaičiuojamas ją atitinkantis tikrinis vektorius (angl. \textit{eigenvector}) $v_k$, sprendžiant lygtį
+\[
+\left(C - \lambda_k I\right)v_k = 0, \qquad \norm{v_k} = 1, \qquad k = 1, \dots, n.
+\]
+Tikrinis vektorius $v_k$ nurodo vieną pagrindinės komponentės kryptį, o tikrinė reikšmė $\lambda_k$ rodo, kiek duomenys yra išsibarstę išilgai tos krypties.
+
+Gauti tikriniai vektoriai išrikiuojami mažėjimo tvarka pagal jų tikrines reikšmes: $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n \geq 0$. Taigi pirmasis vektorius $v_1$ rodo kryptį, kurioje duomenų sklaida yra didžiausia, antrasis -- didžiausią sklaidą turinčią kryptį, statmeną pirmajam, ir taip toliau.
+
+Galiausiai suskaičiuojamos pagrindinės komponentės -- pasirinkus $d$ ($d < n$) didžiausias tikrines reikšmes atitinkančius vektorius, duomenys projektuojami į mažesnės dimensijos erdvę:
+\[
+Y = \tilde{X} V_d, \qquad V_d = \left[ v_1, v_2, \dots, v_d \right], \qquad Y \in \RR^{m \times d}.
+\]
+Kadangi kiekviena pagrindinė komponentė yra pradinių požymių tiesinė kombinacija
+\[
+PC_k = a_{1k}x_1 + a_{2k}x_2 + \dots + a_{nk}x_n,
+\]
+jos koeficientai $a_{jk}$ (tikrinio vektoriaus $v_k$ koordinatės) rodo požymio indėlį į komponentę. Dėl šios savybės PCA komponentės yra interpretuojamos -- galima nustatyti, kurie požymiai labiausiai lemia kiekvieną kryptį.
+
+Dimensija $d$ yra parenkama pagal paaiškintos dispersijos dalį:
+\[
+\mathrm{EV}(d) = \frac{\sum_{k=1}^{d} \lambda_k}{\sum_{k=1}^{n} \lambda_k}.
+\]
+Dažniausiai $d$ parenkamas taip, kad pirmosios komponentės paaiškintų ne mažiau kaip $90$--$95\,\%$ visos duomenų dispersijos.

@@ -1,0 +1,124 @@
+\begin{table}[H]
+\centering
+\caption{Eksperimento A t-SNE metrikų intervalai pagal perplexity}
+\label{tab:tsne_A}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Metrika & $k$ & Intervalas & Geriausios perplexity reikšmės \\
+\hline
+\multirow{3}{*}{$T$} & \num{5} & \num{0.984}--\num{0.990} & \num{15}, \num{30}, \num{5} \\
+\cline{2-4}
+ & \num{15} & \num{0.965}--\num{0.976} & \num{30}, \num{15}, \num{50} \\
+\cline{2-4}
+ & \num{50} & \num{0.918}--\num{0.945} & \num{100}, \num{50}, \num{30} \\
+\hline
+\multirow{3}{*}{$C$} & \num{5} & \num{0.981}--\num{0.985} & \num{30}, \num{100}, \num{15} \\
+\cline{2-4}
+ & \num{15} & \num{0.966}--\num{0.975} & \num{100}, \num{30}, \num{50} \\
+\cline{2-4}
+ & \num{50} & \num{0.939}--\num{0.958} & \num{100}, \num{30}, \num{50} \\
+\hline
+\multirow{3}{*}{KNN} & \num{5} & \num{0.391}--\num{0.501} & \num{15}, \num{30}, \num{5} \\
+\cline{2-4}
+ & \num{15} & \num{0.410}--\num{0.458} & \num{30}, \num{50}, \num{15} \\
+\cline{2-4}
+ & \num{50} & \num{0.408}--\num{0.481} & \num{100}, \num{50}, \num{30} \\
+\hline
+\multirow{3}{*}{NH} & \num{5} & \num{0.814}--\num{0.837} & \num{5}, \num{15}, \num{30} \\
+\cline{2-4}
+ & \num{15} & \num{0.783}--\num{0.795} & \num{5}, \num{15}, \num{30} \\
+\cline{2-4}
+ & \num{50} & \num{0.725}--\num{0.736} & \num{15}, \num{30}, \num{5} \\
+\hline
+\multicolumn{2}{|c|}{Spearman $\rho$} & \num{0.347}--\num{0.389} & \num{100}, \num{15}, \num{5} \\
+\hline
+\multicolumn{2}{|c|}{Normalizuotas Stress} & \num{0.996}--\num{0.997} & \num{5}, \num{15}, \num{30} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Eksperimentų A ir B palyginimas (perplexity = \num{30})}
+\label{tab:tsne_A_B}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Metrika & $k$ & A & B \\
+\hline
+\multirow{3}{*}{$T$} & \num{5} & \num{0.989} & \num{0.981} \\
+\cline{2-4}
+ & \num{15} & \num{0.976} & \num{0.959} \\
+\cline{2-4}
+ & \num{50} & \num{0.943} & \num{0.922} \\
+\hline
+\multirow{3}{*}{$C$} & \num{5} & \num{0.985} & \num{0.965} \\
+\cline{2-4}
+ & \num{15} & \num{0.975} & \num{0.948} \\
+\cline{2-4}
+ & \num{50} & \num{0.955} & \num{0.926} \\
+\hline
+\multirow{3}{*}{KNN} & \num{5} & \num{0.481} & \num{0.443} \\
+\cline{2-4}
+ & \num{15} & \num{0.458} & \num{0.389} \\
+\cline{2-4}
+ & \num{50} & \num{0.467} & \num{0.391} \\
+\hline
+\multirow{3}{*}{NH} & \num{5} & \num{0.834} & \num{0.709} \\
+\cline{2-4}
+ & \num{15} & \num{0.794} & \num{0.667} \\
+\cline{2-4}
+ & \num{50} & \num{0.735} & \num{0.630} \\
+\hline
+\multicolumn{2}{|c|}{Spearman $\rho$} & \num{0.347} & \num{0.378} \\
+\hline
+\multicolumn{2}{|c|}{Normalizuotas Stress} & \num{0.997} & \num{0.875} \\
+\hline
+\multicolumn{2}{|c|}{$\rho(D_{A}, D_{B})$ pradinė erdvė} & \multicolumn{2}{c|}{\num{0.911}} \\
+\hline
+\multicolumn{2}{|c|}{$\rho(D_{A}, D_{B})$ t-SNE} & \multicolumn{2}{c|}{\num{0.635}} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Eksperimento A, apriboto C objektais, ir eksperimento C palyginimas (perplexity = \num{30})}
+\label{tab:tsne_A_C}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Metrika & $k$ & A & C \\
+\hline
+\multirow{3}{*}{$T$} & \num{5} & \num{0.992} & \num{0.993} \\
+\cline{2-4}
+ & \num{15} & \num{0.984} & \num{0.986} \\
+\cline{2-4}
+ & \num{50} & \num{0.969} & \num{0.971} \\
+\hline
+\multirow{3}{*}{$C$} & \num{5} & \num{0.989} & \num{0.989} \\
+\cline{2-4}
+ & \num{15} & \num{0.981} & \num{0.982} \\
+\cline{2-4}
+ & \num{50} & \num{0.966} & \num{0.967} \\
+\hline
+\multirow{3}{*}{KNN} & \num{5} & \num{0.471} & \num{0.485} \\
+\cline{2-4}
+ & \num{15} & \num{0.469} & \num{0.475} \\
+\cline{2-4}
+ & \num{50} & \num{0.505} & \num{0.508} \\
+\hline
+\multirow{3}{*}{NH} & \num{5} & \num{0.884} & \num{0.895} \\
+\cline{2-4}
+ & \num{15} & \num{0.848} & \num{0.859} \\
+\cline{2-4}
+ & \num{50} & \num{0.780} & \num{0.791} \\
+\hline
+\multicolumn{2}{|c|}{Spearman $\rho$} & \num{0.431} & \num{0.404} \\
+\hline
+\multicolumn{2}{|c|}{Normalizuotas Stress} & \num{0.398} & \num{0.395} \\
+\hline
+\multicolumn{2}{|c|}{$\rho(D_{A}, D_{C})$ pradinė erdvė} & \multicolumn{2}{c|}{\num{1.000}} \\
+\hline
+\multicolumn{2}{|c|}{$\rho(D_{A}, D_{C})$ t-SNE} & \multicolumn{2}{c|}{\num{0.775}} \\
+\hline
+\end{tabular}
+\end{table}
